@@ -1,0 +1,6 @@
+
+sublime-hashids
+================================================
+
+- sublime-hashids installed
+- this is a very initial version - you have been warned

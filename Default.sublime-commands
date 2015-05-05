@@ -1,0 +1,12 @@
+[
+  {
+    "caption": "Hashids: Encode",
+    "command": "hashids_encode",
+    "args": {}
+  },
+  {
+    "caption": "Hashids: Decode",
+    "command": "hashids_decode",
+    "args": {}
+  }
+]

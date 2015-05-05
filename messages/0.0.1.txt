@@ -1,0 +1,5 @@
+sublime-hashids 0.0.1
+---------------
+
+- Initial release: working en/decoding
+

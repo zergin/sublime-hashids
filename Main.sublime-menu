@@ -1,0 +1,27 @@
+[
+  {
+    "id": "project",
+    "children": [
+      {
+        "caption": "Hashids",
+        "children": [
+          {
+            "command": "hashids_decode",
+            "caption": "Decode selection"
+          },
+          {
+            "command": "hashids_encode",
+            "caption": "Encode selection"
+          },
+          {
+            "caption": "-"
+          },
+          {
+            "command": "hashids_add_settings",
+            "caption": "Add project settings"
+          }
+        ]
+      }
+    ]
+  }
+]
