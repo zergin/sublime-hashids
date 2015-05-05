@@ -1,0 +1,3 @@
+[submodule "hashids"]
+	path = hashids
+	url = https://github.com/davidaurelio/hashids-python.git
