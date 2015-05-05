@@ -1,0 +1,6 @@
+sublime-hashids 0.0.2
+---------------
+
+- Remove invalid debug
+- Add status meesages when project settings dont exist
+- Fix invalid message numbers

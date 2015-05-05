@@ -6,6 +6,7 @@ class HashidsAddSettingsCommand(sublime_plugin.TextCommand):
         project_data = sublime.active_window().project_data()
 
         if project_data == None:
+            sublime.status_message("Hashids: Missing project data (project not saved?)")
             return
 
         if not project_data.get('settings',{}).get("hashids"):
@@ -18,7 +19,7 @@ class HashidsAddSettingsCommand(sublime_plugin.TextCommand):
 
         # Don't override confiuration
         else:
-            print("Configuration already exists")
+            sublime.status_message("Hashids: Configuration already exists")
 
         # Open configuration in new tab
         sublime.active_window().run_command("open_file",  {"file": "${project}"})
@@ -42,7 +43,7 @@ class HashidsEncodeCommand(sublime_plugin.TextCommand):
                 view.replace(edit, region, encoded)
 
         if empty:
-            print("aaa", sublime.active_window().show_input_panel("Ids to encode", "", _insert_encoded, None, None ))
+            sublime.active_window().show_input_panel("Ids to encode", "", _insert_encoded, None, None )
             return
 
 class HashidsDecodeCommand(sublime_plugin.TextCommand):
