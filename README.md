@@ -6,6 +6,11 @@ Encode and decode hashids (hashids.org).
 
 This plugin allows encoding and decoding ids using [hashids.org](http://hashids.org/) implementation.
 
+## Instalation
+
+ - via PackageControl: https://packagecontrol.io/packages/Hashids
+ - or by cloning https://github.com/zergin/sublime-hashids.git into sublime package directory
+
 ## Usage
 
 - initialize configuration (set salt)
