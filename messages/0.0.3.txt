@@ -1,0 +1,4 @@
+sublime-hashids 0.0.3
+---------------
+
+- Support inline salt providing (salt=abc;ids=1,2,3)

@@ -70,12 +70,13 @@ class HashidsDecodeCommand(sublime_plugin.TextCommand):
 
 def _encode(ids):
     settings = sublime.active_window().active_view().settings().get("hashids", {})
-    ids = [int(i) for i in re.compile('(?:(\d+)[,\s]*)',re.I).findall(ids)]
+    info = dict(re.compile('(?:(?:(\w+)=)?([^;]+))+').findall(ids))
+    ids = [int(i) for i in re.compile('(?:(\d+)[,\s]*)').findall(info.get('ids', info.get('', ids)))]
 
     if not ids:
         return None
 
-    hashids = Hashids(salt=settings["salt"])
+    hashids = Hashids(salt=info.get('salt', settings["salt"]))
     return hashids.encode(*ids)
 
 def _insert_encoded(ids):
@@ -86,12 +87,14 @@ def _insert_encoded(ids):
 
 def _decode(encoded):
     settings = sublime.active_window().active_view().settings().get("hashids", {})
+    info = dict(re.compile('(?:(?:(\w+)=)?([^;]+))+').findall(encoded))
 
-    hashids = Hashids(salt=settings["salt"])
-    return hashids.decode(encoded)
+    hashids = Hashids(salt=info.get('salt', settings["salt"]))
+    return hashids.decode(info.get('hash', info.get('', encoded)))
 
 def _insert_decoded(encoded):
     decoded = _decode(encoded)
     view = sublime.active_window().active_view()
 
     view.run_command("insert", {"characters": ",".join(str(i) for i in decoded)})
+

@@ -34,6 +34,20 @@ This plugin allows encoding and decoding ids using [hashids.org](http://hashids.
 }
 ```
 
+### Using without project configuration
+
+Plugin supports providing inline salt through key-value pairs in de/encoded strings. Examples:
+
+```
+salt=abc;ids=1,2,3 => G7CYSG
+salt=abc;1,2,3 => G7CYSG
+```
+
+```
+salt=abc;hash=G7CYSG => 1,2,3
+salt=abc;G7CYSG => 1,2,3
+```
+
 ## License
 
 &copy; 2015 Marcin Kurzyna <[m.kurzyna@gmail.com](m.kurzyna@gmail.com)>.
